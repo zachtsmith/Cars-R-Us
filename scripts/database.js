@@ -23,6 +23,16 @@ const database = {
         { id: 2, wheels: "17-inch Pair Radial", price: 800 },
         { id: 3, wheels: "18-inch Pair Spoke Silver", price: 1200 },
         { id: 4, wheels: "18-inch Pair Spoke Black", price: 1400 },
+    ],
+    customOrders: [
+        {
+            id: 1,
+            paintId: 1,
+            interiorId: 1,
+            techId: 1,
+            wheelId: 1,
+            timestamp: 1,
+        }
     ]
 }
 
@@ -41,6 +51,11 @@ export const getTechnology = () => {
 export const getWheels = () => {
     return database.wheels.map(wheels => ({...wheels}))
 }
+
+export const getOrders = () => {
+    return database.customOrders.map(customOrder => ({...customOrder}))
+}
+
 export const setPaintColor = (id) => {
     database.orderBuilder.paintId = id
 }
@@ -57,9 +72,6 @@ export const setWheels = (id) => {
     database.orderBuilder.wheelId = id
 }
 
-export const getOrders = () => {
-    return database.customOrders.map(customOrder => ({...customOrder}))
-}
 
 export const addCustomOrder = () => {
     // Copy the current state of user choices
